@@ -482,6 +482,29 @@ namespace PuzzleQuest
                     }
                 }
 
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j <= 5; j++)
+                    {
+                        if (karty[i, j].Image == karty[i , j + 1].Image && karty[i , j + 1].Image == karty[i , j + 2].Image)
+                        {
+                            if (i <= 5 && karty[i, j].Image == karty[i , j + 2].Image)
+                            {
+                                karty[i, j].FlatStyle = FlatStyle.Flat;
+                                karty[i, j].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i, j].FlatAppearance.BorderSize = 3;
+                                karty[i , j + 1].FlatStyle = FlatStyle.Flat;
+                                karty[i , j + 1].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i , j + 1].FlatAppearance.BorderSize = 3;
+                                karty[i , j + 2].FlatStyle = FlatStyle.Flat;
+                                karty[i , j + 2].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i , j + 2].FlatAppearance.BorderSize = 3;
+
+                            }
+                        }
+                    }
+                }
+
             }
 
             
