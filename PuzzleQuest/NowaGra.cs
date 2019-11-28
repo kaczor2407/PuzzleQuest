@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace PuzzleQuest
@@ -36,37 +35,9 @@ namespace PuzzleQuest
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer++;
-            for (int i = 0; i <= 5; i++)
-            {
-                for (int j = 0; j < 8; j++)
-                {
-                    if (karty[i, j].Image == karty[i + 1, j].Image && karty[i + 1, j].Image == karty[i + 2, j].Image)
-                    {
-                        if (i <= 5 && karty[i, j].Image == karty[i + 2, j].Image)
-                        {
-                            
-                            if (timer == 3)
-                            {
-
-                                karty[i, j].FlatStyle = FlatStyle.Flat;
-                                karty[i, j].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i, j].FlatAppearance.BorderSize = 3;
-                                karty[i + 1, j].FlatStyle = FlatStyle.Flat;
-                                karty[i + 1, j].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i + 1, j].FlatAppearance.BorderSize = 3;
-                                karty[i + 2, j].FlatStyle = FlatStyle.Flat;
-                                karty[i + 2, j].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i + 2, j].FlatAppearance.BorderSize = 3;
-                                
-                                timer = 0;
-                            }
-
-                            
-                            
-                        }
-                    }
-                }
-            }
+            
+            
+            //sprawdzenie_Klockow();
         }
 
 
@@ -156,6 +127,10 @@ namespace PuzzleQuest
 
             int los = 0;
             Random losowanie_obrazkow = new Random();
+
+            
+            
+            
             for (int i = 0; i < 8; i++) // sprawdzanie w pionie
                 for (int j = 0; j <= 5; j++)
                 {
@@ -291,7 +266,7 @@ namespace PuzzleQuest
             for (int i = 0; i <= 5; i++) // sprawdzanie w poziomie
                 for (int j = 0; j < 8; j++)
                 {
-                    zaznaczanie_Timer.Start();
+                    
                     if (karty[i, j].Image == karty[i + 1, j].Image && karty[i + 1, j].Image == karty[i + 2, j].Image)
                     {
                         
@@ -368,26 +343,11 @@ namespace PuzzleQuest
                         else if (i <= 5 && karty[i, j].Image == karty[i + 2, j].Image)
                         {
                             zaznaczanie_Timer.Start();
-                            if (timer >= 1)
-                            {
-                                
-                                karty[i, j].FlatStyle = FlatStyle.Flat;
-                                karty[i, j].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i, j].FlatAppearance.BorderSize = 3;
-                                karty[i + 1, j].FlatStyle = FlatStyle.Flat;
-                                karty[i + 1, j].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i + 1, j].FlatAppearance.BorderSize = 3;
-                                karty[i + 2, j].FlatStyle = FlatStyle.Flat;
-                                karty[i + 2, j].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i + 2, j].FlatAppearance.BorderSize = 3;
-    
-                            }
-                            
                             zaznaczanie_Timer.Stop();
-
-                            if (progressBar1.Value >= obrazenia_trzy_klocki)
+                            
+                                if (progressBar1.Value >= obrazenia_trzy_klocki)
                             {
-                                if (usuniecie > 0)
+                                if (usuniecie >= 0)
                                 {
                                     progressBar1.Value = progressBar1.Value - obrazenia_trzy_klocki;
                                     textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_trzy_klocki.ToString() + " Obrazeń \n";
@@ -420,7 +380,7 @@ namespace PuzzleQuest
                         }
                     }
                 }
-            zaznaczanie_Timer.Stop();
+            
             if (progressBar1.Value == 0)
             {
                 if (i == 0)
@@ -447,7 +407,21 @@ namespace PuzzleQuest
             //(sender as Button).Size = new Size(80, 80);
             //(sender as Button).Top -= 20;
             //(sender as Button).Left -= 20;
-            
+            for (int i = 0; i <= 5; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    karty[i, j].FlatStyle = FlatStyle.Standard;
+                    karty[i, j].FlatAppearance.BorderColor = Color.Empty;
+                    karty[i, j].FlatAppearance.BorderSize = 3;
+                    karty[i + 1, j].FlatStyle = FlatStyle.Standard;
+                    karty[i + 1, j].FlatAppearance.BorderColor = Color.Empty;
+                    karty[i + 1, j].FlatAppearance.BorderSize = 3;
+                    karty[i + 2, j].FlatStyle = FlatStyle.Standard;
+                    karty[i + 2, j].FlatAppearance.BorderColor = Color.Empty;
+                    karty[i + 2, j].FlatAppearance.BorderSize = 3;
+                }
+            }
             if (pierwszy == null)
             {
                 pierwszy = ((Button)sender);
@@ -478,14 +452,41 @@ namespace PuzzleQuest
                 {
                     MessageBox.Show("Za daleko");
                 }
+
                 pierwszy.BackColor = System.Drawing.Color.Empty;
                 pierwszy.FlatStyle = FlatStyle.Standard;
                 pierwszy.FlatAppearance.BorderColor = Color.Empty;
                 pierwszy.FlatAppearance.BorderSize = 2;
                 pierwszy = null;
-               
+
+                for (int i = 0; i <= 5; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        if (karty[i, j].Image == karty[i + 1, j].Image && karty[i + 1, j].Image == karty[i + 2, j].Image)
+                        {
+                            if (i <= 5 && karty[i, j].Image == karty[i + 2, j].Image)
+                            {
+                                karty[i, j].FlatStyle = FlatStyle.Flat;
+                                karty[i, j].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i, j].FlatAppearance.BorderSize = 3;
+                                karty[i + 1, j].FlatStyle = FlatStyle.Flat;
+                                karty[i + 1, j].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i + 1, j].FlatAppearance.BorderSize = 3;
+                                karty[i + 2, j].FlatStyle = FlatStyle.Flat;
+                                karty[i + 2, j].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i + 2, j].FlatAppearance.BorderSize = 3;
+
+                            }
+                        }
+                    }
+                }
+
             }
-            sprawdzenie_Klockow();
+
+            
+
+
             usuniecie++;
 
         }
@@ -518,7 +519,7 @@ namespace PuzzleQuest
         {
 
         }
-
+        
         
     }
 }
