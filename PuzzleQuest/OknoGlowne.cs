@@ -107,7 +107,7 @@ namespace PuzzleQuest
 
         private void Nowa_Gra_MouseUp(object sender, MouseEventArgs e)
         {
-            //Gif1.Image = {}
+            Gif1.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
         }
     }
 }

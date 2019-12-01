@@ -51,7 +51,7 @@
             this.Nowa_Gra.Text = "Nowa Gra";
             this.Nowa_Gra.UseVisualStyleBackColor = false;
             this.Nowa_Gra.Click += new System.EventHandler(this.Nowa_Gra_Click);
-            this.Nowa_Gra.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Nowa_Gra_MouseUp);
+            this.Nowa_Gra.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Nowa_Gra_MouseUp);
             // 
             // Najlepsi_Gracze
             // 

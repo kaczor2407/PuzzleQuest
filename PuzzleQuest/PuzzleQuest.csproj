@@ -230,7 +230,9 @@
     <Content Include="Resources\belial_przeciwnik.jpg" />
     <Content Include="Resources\czarny_Rycerz.jpg" />
     <Content Include="Resources\Droga_prosta.png" />
-    <Content Include="Resources\ogien.gif" />
+    <Content Include="Resources\ogien.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\radament_na_mapie.jpg" />
     <Content Include="Resources\radament_przeciwnik.jpg" />
     <Content Include="Resources\zakret_1.png" />
