@@ -35,6 +35,8 @@
             this.Wyjscie = new System.Windows.Forms.Button();
             this.Stworz_Postac = new System.Windows.Forms.Button();
             this.Zaloguj_Sie = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // Nowa_Gra
@@ -115,6 +117,25 @@
             this.Zaloguj_Sie.UseVisualStyleBackColor = false;
             this.Zaloguj_Sie.Click += new System.EventHandler(this.Zaloguj_Sie_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(142, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(97, 0);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(65, 19);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "linkLabel1";
+            // 
             // PuzzleQuest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
@@ -123,6 +144,8 @@
             this.BackgroundImage = global::PuzzleQuest.Properties.Resources.MTG_PQ_LOGO_New2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(361, 490);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Zaloguj_Sie);
             this.Controls.Add(this.Stworz_Postac);
             this.Controls.Add(this.Wyjscie);
@@ -139,6 +162,7 @@
             this.Text = "Puzzle Quest";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -150,6 +174,8 @@
         private System.Windows.Forms.Button Wyjscie;
         private System.Windows.Forms.Button Stworz_Postac;
         private System.Windows.Forms.Button Zaloguj_Sie;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
