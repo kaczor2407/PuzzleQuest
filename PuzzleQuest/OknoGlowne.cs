@@ -104,5 +104,10 @@ namespace PuzzleQuest
             aa.Show();
 
         }
+
+        private void Nowa_Gra_MouseUp(object sender, MouseEventArgs e)
+        {
+            //Gif1.Image = {}
+        }
     }
 }
