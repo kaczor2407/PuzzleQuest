@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PuzzleQuest
@@ -107,8 +100,8 @@ namespace PuzzleQuest
 
         private void Nowa_Gra_MouseUp(object sender, MouseEventArgs e)
         {
-            Gif1.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
-            Gif11.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif1.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif11.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
         }
 
         private void Nowa_Gra_MouseLeave(object sender, EventArgs e)
@@ -119,8 +112,8 @@ namespace PuzzleQuest
 
         private void Stworz_Postac_MouseMove(object sender, MouseEventArgs e)
         {
-            Gif2.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
-            Gif22.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif2.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif22.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
         }
 
         private void Stworz_Postac_MouseLeave(object sender, EventArgs e)
@@ -131,8 +124,8 @@ namespace PuzzleQuest
 
         private void Gif3_MouseMove(object sender, MouseEventArgs e)
         {
-            Gif3.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
-            Gif33.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif3.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif33.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
         }
 
         private void Gif3_MouseLeave(object sender, EventArgs e)
@@ -143,8 +136,8 @@ namespace PuzzleQuest
 
         private void Najlepsi_Gracze_MouseMove(object sender, MouseEventArgs e)
         {
-            Gif4.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
-            Gif44.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif4.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif44.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
         }
 
         private void Najlepsi_Gracze_MouseLeave(object sender, EventArgs e)
@@ -155,8 +148,8 @@ namespace PuzzleQuest
 
         private void O_Grze_MouseMove(object sender, MouseEventArgs e)
         {
-            Gif5.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
-            Gif55.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif5.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif55.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
         }
 
         private void O_Grze_MouseLeave(object sender, EventArgs e)
@@ -167,8 +160,8 @@ namespace PuzzleQuest
 
         private void Wyjscie_MouseMove(object sender, MouseEventArgs e)
         {
-            Gif6.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
-            Gif66.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif6.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif66.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
         }
 
         private void Wyjscie_MouseLeave(object sender, EventArgs e)

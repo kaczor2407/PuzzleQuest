@@ -13,7 +13,7 @@ namespace PuzzleQuest
         int zywotność;
         int usuniecie = 0;
         static int i = 0;
-        static int timer = 0;
+        int timer = 0;
         int obrazenia_trzy_klocki = 30;
         int obrazenia_cztery_klocki = 40;
         int obrazenia_piec_klocków = 50;
@@ -37,9 +37,6 @@ namespace PuzzleQuest
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer++;
-            
-            
-            //sprawdzenie_Klockow();
         }
 
 
@@ -348,8 +345,7 @@ namespace PuzzleQuest
                         
                         else if (i <= 5 && karty[i, j].Image == karty[i + 2, j].Image)
                         {
-                            zaznaczanie_Timer.Start();
-                            zaznaczanie_Timer.Stop();
+                            
                             
                                 if (progressBar1.Value >= obrazenia_trzy_klocki)
                             {
@@ -409,23 +405,20 @@ namespace PuzzleQuest
 
         private void B_MouseClick(object sender, MouseEventArgs e)
         {
-            sprawdzenie_Klockow();
+
             //(sender as Button).Size = new Size(80, 80);
             //(sender as Button).Top -= 20;
             //(sender as Button).Left -= 20;
-            for (int i = 0; i <= 5; i++)
+            sprawdzenie_Klockow();
+
+            for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
                     karty[i, j].FlatStyle = FlatStyle.Standard;
                     karty[i, j].FlatAppearance.BorderColor = Color.Empty;
                     karty[i, j].FlatAppearance.BorderSize = 3;
-                    karty[i + 1, j].FlatStyle = FlatStyle.Standard;
-                    karty[i + 1, j].FlatAppearance.BorderColor = Color.Empty;
-                    karty[i + 1, j].FlatAppearance.BorderSize = 3;
-                    karty[i + 2, j].FlatStyle = FlatStyle.Standard;
-                    karty[i + 2, j].FlatAppearance.BorderColor = Color.Empty;
-                    karty[i + 2, j].FlatAppearance.BorderSize = 3;
+
                 }
             }
             if (pierwszy == null)
@@ -452,6 +445,7 @@ namespace PuzzleQuest
                     zamiana = pierwszy.Image;
                     pierwszy.Image = drugi.Image;
                     drugi.Image = zamiana;
+                    
                     //MessageBox.Show("Zamiana");
                 }
                 else
@@ -465,6 +459,7 @@ namespace PuzzleQuest
                 pierwszy.FlatAppearance.BorderSize = 2;
                 pierwszy = null;
 
+                
                 for (int i = 0; i <= 5; i++)
                 {
                     for (int j = 0; j < 8; j++)
@@ -492,24 +487,27 @@ namespace PuzzleQuest
                 {
                     for (int j = 0; j <= 5; j++)
                     {
-                        if (karty[i, j].Image == karty[i , j + 1].Image && karty[i , j + 1].Image == karty[i , j + 2].Image)
+                        if (karty[i, j].Image == karty[i, j + 1].Image && karty[i, j + 1].Image == karty[i, j + 2].Image)
                         {
-                            if (i <= 5 && karty[i, j].Image == karty[i , j + 2].Image)
+                            if (j <= 5 && karty[i, j].Image == karty[i, j + 2].Image)
                             {
                                 karty[i, j].FlatStyle = FlatStyle.Flat;
                                 karty[i, j].FlatAppearance.BorderColor = Color.Blue;
                                 karty[i, j].FlatAppearance.BorderSize = 3;
-                                karty[i , j + 1].FlatStyle = FlatStyle.Flat;
-                                karty[i , j + 1].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i , j + 1].FlatAppearance.BorderSize = 3;
-                                karty[i , j + 2].FlatStyle = FlatStyle.Flat;
-                                karty[i , j + 2].FlatAppearance.BorderColor = Color.Blue;
-                                karty[i , j + 2].FlatAppearance.BorderSize = 3;
+                                karty[i, j + 1].FlatStyle = FlatStyle.Flat;
+                                karty[i, j + 1].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i, j + 1].FlatAppearance.BorderSize = 3;
+                                karty[i, j + 2].FlatStyle = FlatStyle.Flat;
+                                karty[i, j + 2].FlatAppearance.BorderColor = Color.Blue;
+                                karty[i, j + 2].FlatAppearance.BorderSize = 3;
 
                             }
+
+
                         }
                     }
                 }
+                
 
             }
 
