@@ -17,7 +17,9 @@ namespace PuzzleQuest
         int obrazenia_trzy_klocki = 30;
         int obrazenia_cztery_klocki = 40;
         int obrazenia_piec_klocków = 50;
+        int suma_niebieskich = 0;
 
+        
 
         Random losowanie_obrazkow = new Random();
         Button [,] karty= new Button[rozmiar,rozmiar];
@@ -59,7 +61,6 @@ namespace PuzzleQuest
             tab_przeciwnikow[1] = radament;
 
             int los;
-
             for (int y = 0; y < 8; y++)
             {
                 for (int x = 0; x < 8; x++)
@@ -225,6 +226,11 @@ namespace PuzzleQuest
                         }
                         else if (j <= 5 && karty[i, j].Image == karty[i, j + 2].Image)
                         {
+                            if(karty[i,j].Image==nazwa_obrazkow[1])
+                            {
+                                suma_niebieskich += 3;
+                                ilosc_niebieskich.Text = suma_niebieskich.ToString();
+                            }
                             if (progressBar1.Value >= obrazenia_trzy_klocki)
                             {
                                 if (usuniecie > 0)
@@ -542,7 +548,10 @@ namespace PuzzleQuest
         {
 
         }
-        
-        
+
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+
+        }
     }
 }
