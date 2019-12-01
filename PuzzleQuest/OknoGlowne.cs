@@ -108,6 +108,73 @@ namespace PuzzleQuest
         private void Nowa_Gra_MouseUp(object sender, MouseEventArgs e)
         {
             Gif1.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif11.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+        }
+
+        private void Nowa_Gra_MouseLeave(object sender, EventArgs e)
+        {
+            Gif1.Image = null;
+            Gif11.Image = null;
+        }
+
+        private void Stworz_Postac_MouseMove(object sender, MouseEventArgs e)
+        {
+            Gif2.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif22.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+        }
+
+        private void Stworz_Postac_MouseLeave(object sender, EventArgs e)
+        {
+            Gif2.Image = null;
+            Gif22.Image = null;
+        }
+
+        private void Gif3_MouseMove(object sender, MouseEventArgs e)
+        {
+            Gif3.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif33.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+        }
+
+        private void Gif3_MouseLeave(object sender, EventArgs e)
+        {
+            Gif3.Image = null;
+            Gif33.Image = null;
+        }
+
+        private void Najlepsi_Gracze_MouseMove(object sender, MouseEventArgs e)
+        {
+            Gif4.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif44.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+        }
+
+        private void Najlepsi_Gracze_MouseLeave(object sender, EventArgs e)
+        {
+            Gif4.Image = null;
+            Gif44.Image = null;
+        }
+
+        private void O_Grze_MouseMove(object sender, MouseEventArgs e)
+        {
+            Gif5.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif55.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+        }
+
+        private void O_Grze_MouseLeave(object sender, EventArgs e)
+        {
+            Gif5.Image = null;
+            Gif55.Image = null;
+        }
+
+        private void Wyjscie_MouseMove(object sender, MouseEventArgs e)
+        {
+            Gif6.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif66.Load("c:\\projekt 2\\PuzzleQuest\\Resources\\ogien.gif");
+        }
+
+        private void Wyjscie_MouseLeave(object sender, EventArgs e)
+        {
+            Gif6.Image = null;
+            Gif66.Image = null;
         }
     }
 }
