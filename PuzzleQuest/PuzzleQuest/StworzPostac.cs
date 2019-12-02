@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -41,6 +36,7 @@ namespace PuzzleQuest
         public Stworz_Postac()
         {
             InitializeComponent();
+            
         }
 
         
@@ -76,7 +72,7 @@ namespace PuzzleQuest
             lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.czarodziej);
 
             lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.paladyn);
-           
+
 
 
             if (id_Zdjecia > 0)
