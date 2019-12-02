@@ -229,10 +229,13 @@
     <Content Include="Resources\belial_na_mapie.jpg" />
     <Content Include="Resources\belial_przeciwnik.jpg" />
     <Content Include="Resources\czarny_Rycerz.jpg" />
+    <None Include="Resources\czarodziej.jpg" />
     <Content Include="Resources\Droga_prosta.png" />
+    <None Include="Resources\lucznik.jpg" />
     <Content Include="Resources\ogien.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Paladyn.jpg" />
     <Content Include="Resources\radament_na_mapie.jpg" />
     <Content Include="Resources\radament_przeciwnik.jpg" />
     <Content Include="Resources\zakret_1.png" />

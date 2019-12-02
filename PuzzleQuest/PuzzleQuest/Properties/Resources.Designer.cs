@@ -173,6 +173,16 @@ namespace PuzzleQuest.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lucznik {
+            get {
+                object obj = ResourceManager.GetObject("lucznik", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap monety {
             get {
                 object obj = ResourceManager.GetObject("monety", resourceCulture);
@@ -213,9 +223,9 @@ namespace PuzzleQuest.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paladyn {
+        internal static System.Drawing.Bitmap Paladyn {
             get {
-                object obj = ResourceManager.GetObject("paladyn", resourceCulture);
+                object obj = ResourceManager.GetObject("Paladyn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,16 +246,6 @@ namespace PuzzleQuest.Properties {
         internal static System.Drawing.Bitmap radament_przeciwnik {
             get {
                 object obj = ResourceManager.GetObject("radament_przeciwnik", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rycerz {
-            get {
-                object obj = ResourceManager.GetObject("rycerz", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

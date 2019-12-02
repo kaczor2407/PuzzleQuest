@@ -36,7 +36,16 @@ namespace PuzzleQuest
         public Stworz_Postac()
         {
             InitializeComponent();
+            lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.czarodziej);
+
+            lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.lucznik);
+
+            lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.Paladyn);
+
+            pictureBox1.Image = lista_zdjec[id_Zdjecia];
             
+            Wojownik.Text = "Czarodziej";
+
         }
 
         
@@ -66,31 +75,26 @@ namespace PuzzleQuest
 
         private void W_Lewo_Click(object sender, EventArgs e)
         {
-
-            lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.rycerz);
-
-            lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.czarodziej);
-
-            lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.paladyn);
-
-
-
+            
             if (id_Zdjecia > 0)
             {
                 id_Zdjecia--;
-
-                if (id_Zdjecia == 0)
-                {
-                    id_Zdjecia = 3;
-                }
-                
-                Wojownik.Text = id_Zdjecia.ToString();
                 pictureBox1.Image = lista_zdjec[id_Zdjecia];
+                
+                if(id_Zdjecia == 0)
+                {
+                    Wojownik.Text = "Czarodziej";
+                }
+                else if(id_Zdjecia == 1)
+                {
+                    Wojownik.Text = "Łucznik";
+                }
             }
-            else
+            else 
             {
                 id_Zdjecia = lista_zdjec.Count - 1;
                 pictureBox1.Image = lista_zdjec[id_Zdjecia];
+                Wojownik.Text = "Paladyn";
             }
             
 
@@ -102,15 +106,26 @@ namespace PuzzleQuest
             
 
 
-            if (id_Zdjecia < lista_zdjec.Count - 1)
+            if (id_Zdjecia < lista_zdjec.Count)
             {
                 id_Zdjecia++;
-                if (id_Zdjecia == 4)
+                if (id_Zdjecia == 3)
                 {
-                    id_Zdjecia = 1;
+                    id_Zdjecia = 0;
                 }
 
-                Wojownik.Text = id_Zdjecia.ToString();
+                if(id_Zdjecia == 0)
+                {
+                    Wojownik.Text = "Czarodziej";
+                    pictureBox1.Image = lista_zdjec[id_Zdjecia];
+                }
+                else if(id_Zdjecia == 1)
+                {
+                    Wojownik.Text = "Łucznik";
+                    pictureBox1.Image = lista_zdjec[id_Zdjecia];
+                }
+                else
+                Wojownik.Text = "Paladyn";
                 pictureBox1.Image = lista_zdjec[id_Zdjecia];
             }
 

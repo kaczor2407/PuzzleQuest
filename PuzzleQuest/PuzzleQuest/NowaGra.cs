@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PuzzleQuest
@@ -39,10 +41,7 @@ namespace PuzzleQuest
         {
             timer++;
             this.Text = timer.ToString();
-            if(timer == 10)
-            {
-                this.Text = "done";
-            }
+            
         }
 
 
@@ -420,6 +419,19 @@ namespace PuzzleQuest
             //(sender as Button).Top -= 20;
             //(sender as Button).Left -= 20;
             
+                sprawdzenie_Klockow();
+
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        karty[i, j].FlatStyle = FlatStyle.Standard;
+                        karty[i, j].FlatAppearance.BorderColor = Color.Empty;
+                        karty[i, j].FlatAppearance.BorderSize = 3;
+
+                    }
+                }
+            
             if (pierwszy == null)
             {
                 pierwszy = ((Button)sender);
@@ -505,23 +517,12 @@ namespace PuzzleQuest
 
                         }
                     }
-                }
-                if(timer >= 2)
-                {
-                    sprawdzenie_Klockow();
 
-                    for (int i = 0; i < 8; i++)
-                    {
-                        for (int j = 0; j < 8; j++)
-                        {
-                            karty[i, j].FlatStyle = FlatStyle.Standard;
-                            karty[i, j].FlatAppearance.BorderColor = Color.Empty;
-                            karty[i, j].FlatAppearance.BorderSize = 3;
-
-                        }
-                    }
                 }
                 
+                
+
+
 
             }
 

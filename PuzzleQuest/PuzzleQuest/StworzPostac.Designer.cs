@@ -148,11 +148,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PuzzleQuest.Properties.Resources.rycerz;
-            this.pictureBox1.Location = new System.Drawing.Point(460, 155);
+            this.pictureBox1.Location = new System.Drawing.Point(475, 164);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 210);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(147, 198);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -183,9 +182,12 @@
             // Wojownik
             // 
             this.Wojownik.AutoSize = true;
-            this.Wojownik.Location = new System.Drawing.Point(501, 119);
+            this.Wojownik.BackColor = System.Drawing.Color.Transparent;
+            this.Wojownik.Font = new System.Drawing.Font("MS PGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Wojownik.ForeColor = System.Drawing.Color.Lime;
+            this.Wojownik.Location = new System.Drawing.Point(498, 124);
             this.Wojownik.Name = "Wojownik";
-            this.Wojownik.Size = new System.Drawing.Size(35, 13);
+            this.Wojownik.Size = new System.Drawing.Size(52, 16);
             this.Wojownik.TabIndex = 13;
             this.Wojownik.Text = "label1";
             // 
