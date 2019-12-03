@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PuzzleQuest
 {
-    
+
     public partial class Nowa_Gra : Form
     {
         const int sizeCard = 70;
@@ -21,16 +19,23 @@ namespace PuzzleQuest
         int obrazenia_piec_klocków = 50;
         int suma_niebieskich = 0;
         int suma_zielonych = 0;
-
+        int suma_czerwonych = 0;
+        int suma_zoltych = 0;
+        int suma_monety = 0;
+        int suma_doswiadczenie = 0;
+        int suma_atak = 0;
+        int obrazenia_potwora;
+        int crytyczne_potwora;
         
 
         Random losowanie_obrazkow = new Random();
-        Button [,] karty= new Button[rozmiar,rozmiar];
+        Random losowanie_obrazen = new Random();
+        Button[,] karty = new Button[rozmiar, rozmiar];
         Button pierwszy;
         Image zamiana;
         List<Image> nazwa_obrazkow = new List<Image>();
 
-       
+
         string[] przeciwnik = new string[7];
         object[] tab_przeciwnikow = new object[7];
         Belial belial = new Belial("Belial", 1000, 100f, 0.6f);
@@ -40,16 +45,16 @@ namespace PuzzleQuest
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer++;
-            this.Text = timer.ToString();
-            
+            Text = timer.ToString();
+
         }
 
 
         public Nowa_Gra()
         {
-            
+
             InitializeComponent();
-            zaznaczanie_Timer.Start();
+
             nazwa_obrazkow.Add(global::PuzzleQuest.Properties.Resources.klocek_niebieski);
             nazwa_obrazkow.Add(global::PuzzleQuest.Properties.Resources.klocek_zielony);
             nazwa_obrazkow.Add(global::PuzzleQuest.Properties.Resources.klocek_zolty);
@@ -57,12 +62,13 @@ namespace PuzzleQuest
             nazwa_obrazkow.Add(global::PuzzleQuest.Properties.Resources.klocek_czerwony);
             nazwa_obrazkow.Add(global::PuzzleQuest.Properties.Resources.doswiadczenie);
             nazwa_obrazkow.Add(global::PuzzleQuest.Properties.Resources.monety);
-            
+
 
             tab_przeciwnikow[0] = belial;
             tab_przeciwnikow[1] = radament;
 
             int los;
+            
             for (int y = 0; y < 8; y++)
             {
                 for (int x = 0; x < 8; x++)
@@ -74,10 +80,10 @@ namespace PuzzleQuest
                     b.Image = nazwa_obrazkow[los];
                     b.Tag = new Point(x, y);
                     b.MouseClick += B_MouseClick;
-                    panel1.Location = new Point(400,0);
-                    panel1.Size = new Size(700,700);
+                    panel1.Location = new Point(400, 0);
+                    panel1.Size = new Size(700, 700);
                     panel1.Controls.Add(b);
-                    karty[x,y] = b;
+                    karty[x, y] = b;
                 }
             }
 
@@ -90,15 +96,15 @@ namespace PuzzleQuest
             sprawdzenie_Klockow();
 
             ustawienie_Zycia();
-            
+
             
 
 
 
         }
-        
 
-        
+
+
         private void ustawienie_Zywotnosci()
         {
             if (tab_przeciwnikow[i] == belial)
@@ -130,41 +136,106 @@ namespace PuzzleQuest
         }
         private void sprawdzenie_Klockow()
         {
-            
+
 
             int los = 0;
+            int szansa_na_pieniadze;
             Random losowanie_obrazkow = new Random();
 
-            
-            
-            
+
+
+
             for (int i = 0; i < 8; i++) // sprawdzanie w pionie
                 for (int j = 0; j <= 5; j++)
                 {
                     if (karty[i, j].Image == karty[i, j + 1].Image && karty[i, j + 1].Image == karty[i, j + 2].Image)
                     {
-                        
+
                         if (j <= 3 && karty[i, j].Image == karty[i, j + 3].Image && karty[i, j].Image == karty[i, j + 4].Image)
                         {
-                            
+
                             if (progressBar1.Value >= obrazenia_piec_klocków)
                             {
-                                
+
                                 if (usuniecie > 0)
+                                {
+
+                                    progressBar1.Value = progressBar1.Value - obrazenia_piec_klocków;
+                                    textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_piec_klocków.ToString() + " Obrazeń ";
+                                    label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
+                                    if(karty[i,j].Image == nazwa_obrazkow[0])
                                     {
-                                      
-                                        progressBar1.Value = progressBar1.Value - obrazenia_piec_klocków;
-                                        textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_piec_klocków.ToString() + " Obrazeń ";
-                                        label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
+                                        suma_niebieskich += 5;
+                                        ilosc_niebieskich.Text = suma_niebieskich.ToString();
                                     }
-                                    
-                                
+                                    else if (karty[i, j].Image == nazwa_obrazkow[1])
+                                    {
+                                        suma_zielonych += 5;
+                                        ilosc_zielonych.Text = suma_zielonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[2])
+                                    {
+                                        suma_zoltych += 5;
+                                        ilosc_zoltych.Text = suma_zoltych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[3])
+                                    {
+                                        suma_atak += 5;
+                                        atak_label.Text = suma_atak.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[4])
+                                    {
+                                        suma_czerwonych += 5;
+                                        ilosc_czerwonych.Text = suma_czerwonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[5])
+                                    {
+                                        suma_doswiadczenie += 5;
+                                        doswiadczenie_label.Text = suma_doswiadczenie.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[6])
+                                    {
+                                        szansa_na_pieniadze = losowanie_obrazkow.Next(1, 10);
+                                        if (szansa_na_pieniadze <= 5)
+                                        {
+                                            suma_monety += 50;
+                                            monety.Text = suma_monety.ToString();
+                                        }
+                                    }
+
+                                }
+
+
 
                             }
                             else
                             {
                                 progressBar1.Value = 0;
-                                
+
+                            }
+
+                            crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
+                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            if (crytyczne_potwora <= 5)
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                {
+                                    obrazenia_potwora = obrazenia_potwora * 2;
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                {
+                                    pasek_zycia_Postaci.Value = 0;
+                                }
+                            }
+                            else
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70)
+                                {
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                    pasek_zycia_Postaci.Value = 0;
                             }
                             for (int x = i; x <= i; x++)
                             {
@@ -185,7 +256,7 @@ namespace PuzzleQuest
                                             karty[x, w].Image = nazwa_obrazkow[los];
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
@@ -198,6 +269,46 @@ namespace PuzzleQuest
                                     progressBar1.Value = progressBar1.Value - obrazenia_cztery_klocki;
                                     textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_cztery_klocki.ToString() + " Obrazeń \n";
                                     label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
+
+                                    if (karty[i, j].Image == nazwa_obrazkow[0])
+                                    {
+                                        suma_niebieskich += 3;
+                                        ilosc_niebieskich.Text = suma_niebieskich.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[1])
+                                    {
+                                        suma_zielonych += 3;
+                                        ilosc_zielonych.Text = suma_zielonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[2])
+                                    {
+                                        suma_zoltych += 3;
+                                        ilosc_zoltych.Text = suma_zoltych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[3])
+                                    {
+                                        suma_atak += 3;
+                                        atak_label.Text = suma_atak.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[4])
+                                    {
+                                        suma_czerwonych += 3;
+                                        ilosc_czerwonych.Text = suma_czerwonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[5])
+                                    {
+                                        suma_doswiadczenie += 3;
+                                        doswiadczenie_label.Text = suma_doswiadczenie.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[6])
+                                    {
+                                        szansa_na_pieniadze = losowanie_obrazkow.Next(1, 10);
+                                        if (szansa_na_pieniadze <= 5)
+                                        {
+                                            suma_monety += 30;
+                                            monety.Text = suma_monety.ToString();
+                                        }
+                                    }
                                 }
 
 
@@ -205,8 +316,32 @@ namespace PuzzleQuest
                             else
                             {
                                 progressBar1.Value = 0;
-                                
 
+
+                            }
+
+                            crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
+                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            if (crytyczne_potwora <= 5)
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                {
+                                    obrazenia_potwora = obrazenia_potwora * 2;
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                {
+                                    pasek_zycia_Postaci.Value = 0;
+                                }
+                            }
+                            else
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70)
+                                {
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                    pasek_zycia_Postaci.Value = 0;
                             }
                             for (int x = i; x <= i; x++)
                             {
@@ -226,17 +361,13 @@ namespace PuzzleQuest
                                             karty[x, w].Image = nazwa_obrazkow[los];
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
                         else if (j <= 5 && karty[i, j].Image == karty[i, j + 2].Image)
                         {
-                            if(karty[i,j].Image == nazwa_obrazkow[1])
-                            {
-                                suma_zielonych += 3;
-                                ilosc_zielonych.Text = suma_zielonych.ToString();
-                            }
+                            
                             if (progressBar1.Value >= obrazenia_trzy_klocki)
                             {
                                 if (usuniecie > 0)
@@ -244,11 +375,75 @@ namespace PuzzleQuest
                                     progressBar1.Value = progressBar1.Value - obrazenia_trzy_klocki;
                                     textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_trzy_klocki.ToString() + " Obrazeń \n";
                                     label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
+
+                                    if (karty[i, j].Image == nazwa_obrazkow[0])
+                                    {
+                                        suma_niebieskich += 3;
+                                        ilosc_niebieskich.Text = suma_niebieskich.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[1])
+                                    {
+                                        suma_zielonych += 3;
+                                        ilosc_zielonych.Text = suma_zielonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[2])
+                                    {
+                                        suma_zoltych += 3;
+                                        ilosc_zoltych.Text = suma_zoltych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[3])
+                                    {
+                                        suma_atak += 3;
+                                        atak_label.Text = suma_atak.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[4])
+                                    {
+                                        suma_czerwonych += 3;
+                                        ilosc_czerwonych.Text = suma_czerwonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[5])
+                                    {
+                                        suma_doswiadczenie += 3;
+                                        doswiadczenie_label.Text = suma_doswiadczenie.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[6])
+                                    {
+                                        szansa_na_pieniadze = losowanie_obrazkow.Next(1, 10);
+                                        if (szansa_na_pieniadze <= 5)
+                                        {
+                                            suma_monety += 30;
+                                            monety.Text = suma_monety.ToString();
+                                        }
+                                    }
                                 }
                             }
                             else
                             {
                                 progressBar1.Value = 0;
+                            }
+
+                            crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
+                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            if (crytyczne_potwora <= 5)
+                            {
+                                if (pasek_zycia_Postaci.Value >= obrazenia_potwora * 2)
+                                {
+                                    obrazenia_potwora = obrazenia_potwora * 2;
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                {
+                                    pasek_zycia_Postaci.Value = 0;
+                                }
+                            }
+                            else
+                            {
+                                if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                {
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                    pasek_zycia_Postaci.Value = 0;
                             }
                             for (int x = i; x <= i; x++)
                             {
@@ -268,36 +463,100 @@ namespace PuzzleQuest
                                             karty[x, w].Image = nazwa_obrazkow[los];
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
                     }
-                    
+
                 }
             for (int i = 0; i <= 5; i++) // sprawdzanie w poziomie
                 for (int j = 0; j < 8; j++)
                 {
-                    
+
                     if (karty[i, j].Image == karty[i + 1, j].Image && karty[i + 1, j].Image == karty[i + 2, j].Image)
                     {
-                        
+
                         if (i <= 3 && karty[i, j].Image == karty[i + 4, j].Image && karty[i, j].Image == karty[i + 3, j].Image)
                         {
                             if (progressBar1.Value >= obrazenia_piec_klocków)
                             {
                                 if (usuniecie > 0)
                                 {
-                                    
+
                                     progressBar1.Value = progressBar1.Value - obrazenia_piec_klocków;
                                     textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_piec_klocków.ToString() + " Obrazeń \n";
                                     label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
+
+                                    if (karty[i, j].Image == nazwa_obrazkow[0])
+                                    {
+                                        suma_niebieskich += 5;
+                                        ilosc_niebieskich.Text = suma_niebieskich.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[1])
+                                    {
+                                        suma_zielonych += 5;
+                                        ilosc_zielonych.Text = suma_zielonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[2])
+                                    {
+                                        suma_zoltych += 5;
+                                        ilosc_zoltych.Text = suma_zoltych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[3])
+                                    {
+                                        suma_atak += 5;
+                                        atak_label.Text = suma_atak.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[4])
+                                    {
+                                        suma_czerwonych += 5;
+                                        ilosc_czerwonych.Text = suma_czerwonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[5])
+                                    {
+                                        suma_doswiadczenie += 5;
+                                        doswiadczenie_label.Text = suma_doswiadczenie.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[6])
+                                    {
+                                        szansa_na_pieniadze = losowanie_obrazkow.Next(1, 10);
+                                        if (szansa_na_pieniadze <= 5)
+                                        {
+                                            suma_monety += 50;
+                                            monety.Text = suma_monety.ToString();
+                                        }
+                                    }
                                 }
                             }
                             else
                             {
                                 progressBar1.Value = 0;
-                                
+
+                            }
+
+                            crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
+                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            if (crytyczne_potwora <= 5)
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                {
+                                    obrazenia_potwora = obrazenia_potwora * 2;
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                {
+                                    pasek_zycia_Postaci.Value = 0;
+                                }
+                            }
+                            else
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70)
+                                {
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                    pasek_zycia_Postaci.Value = 0;
                             }
                             for (int x = i; x <= i + 4; x++)
                             {
@@ -313,7 +572,7 @@ namespace PuzzleQuest
                                             karty[x, w].Image = nazwa_obrazkow[los];
                                         }
                                     }
-                                    
+
                                 }
                             }
                         }
@@ -327,11 +586,75 @@ namespace PuzzleQuest
                                     progressBar1.Value = progressBar1.Value - obrazenia_cztery_klocki;
                                     textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_cztery_klocki.ToString() + " Obrazeń \n";
                                     label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
+
+                                    if (karty[i, j].Image == nazwa_obrazkow[0])
+                                    {
+                                        suma_niebieskich += 4;
+                                        ilosc_niebieskich.Text = suma_niebieskich.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[1])
+                                    {
+                                        suma_zielonych += 4;
+                                        ilosc_zielonych.Text = suma_zielonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[2])
+                                    {
+                                        suma_zoltych += 4;
+                                        ilosc_zoltych.Text = suma_zoltych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[3])
+                                    {
+                                        suma_atak += 4;
+                                        atak_label.Text = suma_atak.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[4])
+                                    {
+                                        suma_czerwonych += 4;
+                                        ilosc_czerwonych.Text = suma_czerwonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[5])
+                                    {
+                                        suma_doswiadczenie += 4;
+                                        doswiadczenie_label.Text = suma_doswiadczenie.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[6])
+                                    {
+                                        szansa_na_pieniadze = losowanie_obrazkow.Next(1, 10);
+                                        if (szansa_na_pieniadze <= 5)
+                                        {
+                                            suma_monety += 40;
+                                            monety.Text = suma_monety.ToString();
+                                        }
+                                    }
                                 }
                             }
                             else
                             {
                                 progressBar1.Value = 0;
+                            }
+
+                            crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
+                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            if (crytyczne_potwora <= 5)
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                {
+                                    obrazenia_potwora = obrazenia_potwora * 2;
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                {
+                                    pasek_zycia_Postaci.Value = 0;
+                                }
+                            }
+                            else
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70)
+                                {
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                    pasek_zycia_Postaci.Value = 0;
                             }
                             for (int x = i; x <= i + 3; x++)
                             {
@@ -347,27 +670,91 @@ namespace PuzzleQuest
                                             karty[x, w].Image = nazwa_obrazkow[los];
                                         }
                                     }
-                                   
+
                                 }
                             }
                         }
-                        
+
                         else if (i <= 5 && karty[i, j].Image == karty[i + 2, j].Image)
                         {
-                            
-                            
-                                if (progressBar1.Value >= obrazenia_trzy_klocki)
+
+
+                            if (progressBar1.Value >= obrazenia_trzy_klocki)
                             {
                                 if (usuniecie >= 0)
                                 {
                                     progressBar1.Value = progressBar1.Value - obrazenia_trzy_klocki;
                                     textBox1.Text = textBox1.Text + "\r\nZadales " + obrazenia_trzy_klocki.ToString() + " Obrazeń \n";
                                     label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
+
+                                    if (karty[i, j].Image == nazwa_obrazkow[0])
+                                    {
+                                        suma_niebieskich += 3;
+                                        ilosc_niebieskich.Text = suma_niebieskich.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[1])
+                                    {
+                                        suma_zielonych += 3;
+                                        ilosc_zielonych.Text = suma_zielonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[2])
+                                    {
+                                        suma_zoltych += 3;
+                                        ilosc_zoltych.Text = suma_zoltych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[3])
+                                    {
+                                        suma_atak += 3;
+                                        atak_label.Text = suma_atak.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[4])
+                                    {
+                                        suma_czerwonych += 3;
+                                        ilosc_czerwonych.Text = suma_czerwonych.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[5])
+                                    {
+                                        suma_doswiadczenie += 3;
+                                        doswiadczenie_label.Text = suma_doswiadczenie.ToString();
+                                    }
+                                    else if (karty[i, j].Image == nazwa_obrazkow[6])
+                                    {
+                                        szansa_na_pieniadze = losowanie_obrazkow.Next(1, 10);
+                                        if (szansa_na_pieniadze <= 5)
+                                        {
+                                            suma_monety += 30;
+                                            monety.Text = suma_monety.ToString();
+                                        }
+                                    }
                                 }
                             }
                             else
                             {
                                 progressBar1.Value = 0;
+                            }
+
+                            crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
+                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            if (crytyczne_potwora <= 5)
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                {
+                                    obrazenia_potwora = obrazenia_potwora * 2;
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                {
+                                    pasek_zycia_Postaci.Value = 0;
+                                }
+                            }
+                            else
+                            {
+                                if (pasek_zycia_Postaci.Value >= 70)
+                                {
+                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                }
+                                else
+                                    pasek_zycia_Postaci.Value = 0;
                             }
                             for (int x = i; x <= i + 2; x++)
                             {
@@ -384,14 +771,16 @@ namespace PuzzleQuest
                                             karty[x, w].Image = nazwa_obrazkow[los];
                                         }
                                     }
-                                    
+
                                 }
                             }
-                            
+
                         }
                     }
                 }
+
             
+
             if (progressBar1.Value == 0)
             {
                 if (i == 0)
@@ -399,16 +788,34 @@ namespace PuzzleQuest
                     przeciwnik[i] = "Belial";
                     MessageBox.Show("Pokonałeś przeciwnika " + przeciwnik[i]);
                 }
-                else if(i == 1)
+                else if (i == 1)
                 {
                     przeciwnik[i] = "Radament";
                     MessageBox.Show("Pokonałeś przeciwnika " + przeciwnik[i]);
                 }
                 i++;
-                
+
                 wroc_do_Mapy();
             }
-            
+            else if(pasek_zycia_Postaci.Value == 0)
+            {
+                if (i == 0)
+                {
+                    przeciwnik[i] = "Belial";
+                    MessageBox.Show("Pokonał Cie " + przeciwnik[i]);
+                    Mapa.x--;
+                }
+                else if (i == 1)
+                {
+                    przeciwnik[i] = "Radament";
+                    MessageBox.Show("Pokonał Cie " + przeciwnik[i]);
+                    Mapa.y--;
+                }
+                
+
+                wroc_do_Mapy();
+            }
+
         }
 
 
@@ -419,19 +826,22 @@ namespace PuzzleQuest
             //(sender as Button).Top -= 20;
             //(sender as Button).Left -= 20;
             
-                sprawdzenie_Klockow();
+            sprawdzenie_Klockow();
 
-                for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
                 {
-                    for (int j = 0; j < 8; j++)
-                    {
-                        karty[i, j].FlatStyle = FlatStyle.Standard;
-                        karty[i, j].FlatAppearance.BorderColor = Color.Empty;
-                        karty[i, j].FlatAppearance.BorderSize = 3;
+                    karty[i, j].FlatStyle = FlatStyle.Standard;
+                    karty[i, j].FlatAppearance.BorderColor = Color.Empty;
+                    karty[i, j].FlatAppearance.BorderSize = 3;
 
-                    }
                 }
+            }
+
             
+                
+
             if (pierwszy == null)
             {
                 pierwszy = ((Button)sender);
@@ -456,7 +866,7 @@ namespace PuzzleQuest
                     zamiana = pierwszy.Image;
                     pierwszy.Image = drugi.Image;
                     drugi.Image = zamiana;
-                    
+
                     //MessageBox.Show("Zamiana");
                 }
                 else
@@ -470,7 +880,7 @@ namespace PuzzleQuest
                 pierwszy.FlatAppearance.BorderSize = 2;
                 pierwszy = null;
 
-                
+
                 for (int i = 0; i <= 5; i++)
                 {
                     for (int j = 0; j < 8; j++)
@@ -513,22 +923,13 @@ namespace PuzzleQuest
                                 karty[i, j + 2].FlatAppearance.BorderSize = 3;
 
                             }
-
-
+                            
                         }
                     }
 
                 }
-                
-                
-
-
 
             }
-
-            
-
-
             usuniecie++;
 
         }
@@ -548,8 +949,8 @@ namespace PuzzleQuest
         {
             System.Threading.Thread map =
                 new System.Threading.Thread(new System.Threading.ThreadStart(otworz));
-        //uruchomienie nowego wątku
-        
+            //uruchomienie nowego wątku
+
             map.Start();
 
             //zamknięcie starego wątku

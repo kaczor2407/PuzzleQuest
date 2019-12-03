@@ -232,9 +232,9 @@
     <None Include="Resources\czarodziej.jpg" />
     <Content Include="Resources\Droga_prosta.png" />
     <None Include="Resources\lucznik.jpg" />
-    <Content Include="Resources\ogien.gif">
+    <Resource Include="Resources\ogien.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
     <None Include="Resources\Paladyn.jpg" />
     <Content Include="Resources\radament_na_mapie.jpg" />
     <Content Include="Resources\radament_przeciwnik.jpg" />

@@ -7,8 +7,8 @@ namespace PuzzleQuest
 {
     public partial class Mapa : Form
     {
-       static int y = 0;
-       static int x = 0;
+       public static int y = 0;
+       public static int x = 0;
         
         const int sizeCard = 70;
         const int rozmiar = 8;
@@ -268,7 +268,7 @@ namespace PuzzleQuest
             }
             else if (radament_result == DialogResult.No)
             {
-                x--;
+                y--;
                 rycerz.Location = new Point(x * 70, y * 70);
             }
         }

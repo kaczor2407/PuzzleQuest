@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stworz_Postac));
             this.Login = new System.Windows.Forms.TextBox();
             this.Login_Label = new System.Windows.Forms.Label();
             this.Haslo_Label = new System.Windows.Forms.Label();
@@ -213,6 +214,7 @@
             this.Controls.Add(this.Login);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Stworz_Postac";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tworzenie Postaci";
