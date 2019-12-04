@@ -135,10 +135,6 @@
             resources.ApplyResources(this.monety, "monety");
             this.monety.Name = "monety";
             // 
-            // fontDialog1
-            // 
-            this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
-            // 
             // zielony_klocek
             // 
             this.zielony_klocek.Image = global::PuzzleQuest.Properties.Resources.klocek_zielony;
@@ -224,7 +220,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "Nowa_Gra";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Nowa_Gra_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zielony_klocek)).EndInit();

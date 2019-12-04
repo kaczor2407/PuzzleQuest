@@ -734,7 +734,7 @@ namespace PuzzleQuest
                             }
 
                             crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
-                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            obrazenia_potwora = losowanie_obrazen.Next(1, 20);
                             if (crytyczne_potwora <= 5)
                             {
                                 if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
@@ -879,9 +879,10 @@ namespace PuzzleQuest
                 pierwszy.FlatAppearance.BorderColor = Color.Empty;
                 pierwszy.FlatAppearance.BorderSize = 2;
                 pierwszy = null;
+            }
+            usuniecie++;
 
-
-                for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= 5; i++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
@@ -929,8 +930,7 @@ namespace PuzzleQuest
 
                 }
 
-            }
-            usuniecie++;
+           
 
         }
 
@@ -956,16 +956,6 @@ namespace PuzzleQuest
             //zamknięcie starego wątku
 
             Application.ExitThread();
-        }
-
-        private void Nowa_Gra_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fontDialog1_Apply(object sender, EventArgs e)
-        {
-
         }
     }
 }
