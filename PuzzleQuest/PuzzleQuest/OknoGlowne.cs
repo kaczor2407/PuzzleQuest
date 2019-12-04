@@ -10,8 +10,11 @@ namespace PuzzleQuest
         Button[,] karty = new Button[8, 8];
 
         List<Bitmap> lista_gifow = new List<Bitmap>();
+
+        
         public PuzzleQuest()
         {
+            lista_gifow.Add(global::PuzzleQuest.Properties.Resources.ogien);
             InitializeComponent();
         }
 
@@ -102,77 +105,79 @@ namespace PuzzleQuest
 
         }
 
+        
+
         private void Nowa_Gra_MouseUp(object sender, MouseEventArgs e)
         {
-            
-            //Gif1.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
-            //Gif11.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+
+            Gif1.Image = lista_gifow[0];
+            Gif11.Image = lista_gifow[0];
         }
 
         private void Nowa_Gra_MouseLeave(object sender, EventArgs e)
         {
-            //Gif1.Image = null;
-            //Gif11.Image = null;
+            Gif1.Image = null;
+            Gif11.Image = null;
         }
 
         private void Stworz_Postac_MouseMove(object sender, MouseEventArgs e)
         {
-           // Gif2.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
-           // Gif22.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif2.Image = lista_gifow[0];
+            Gif22.Image = lista_gifow[0];
         }
 
         private void Stworz_Postac_MouseLeave(object sender, EventArgs e)
         {
-            //Gif2.Image = null;
-          //  Gif22.Image = null;
+            Gif2.Image = null;
+            Gif22.Image = null;
         }
 
         private void Gif3_MouseMove(object sender, MouseEventArgs e)
         {
-           // Gif3.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
-           // Gif33.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif3.Image = lista_gifow[0];
+            Gif33.Image = lista_gifow[0];
         }
 
         private void Gif3_MouseLeave(object sender, EventArgs e)
         {
-           // Gif3.Image = null;
-           // Gif33.Image = null;
+           Gif3.Image = null;
+           Gif33.Image = null;
         }
 
         private void Najlepsi_Gracze_MouseMove(object sender, MouseEventArgs e)
         {
-           // Gif4.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
-           // Gif44.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif4.Image = lista_gifow[0];
+            Gif44.Image = lista_gifow[0];
         }
 
         private void Najlepsi_Gracze_MouseLeave(object sender, EventArgs e)
         {
-           // Gif4.Image = null;
-           // Gif44.Image = null;
+            Gif4.Image = null;
+            Gif44.Image = null;
         }
 
         private void O_Grze_MouseMove(object sender, MouseEventArgs e)
         {
-            //Gif5.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
-           // Gif55.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif5.Image = lista_gifow[0];
+            Gif55.Image = lista_gifow[0];
         }
 
         private void O_Grze_MouseLeave(object sender, EventArgs e)
         {
-           // Gif5.Image = null;
-           // Gif55.Image = null;
+            Gif5.Image = null;
+            Gif55.Image = null;
         }
 
         private void Wyjscie_MouseMove(object sender, MouseEventArgs e)
         {
-           // Gif6.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
-           // Gif66.Load("C:\\Users\\kaczy\\OneDrive\\Pulpit\\Git\\PuzzleQuest\\PuzzleQuest\\Resources\\ogien.gif");
+            Gif6.Image = lista_gifow[0];
+            Gif66.Image = lista_gifow[0];
         }
 
         private void Wyjscie_MouseLeave(object sender, EventArgs e)
         {
-           // Gif6.Image = null;
-           // Gif66.Image = null;
+            Gif6.Image = null;
+            Gif66.Image = null;
         }
     }
 }

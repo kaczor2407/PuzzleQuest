@@ -236,6 +236,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <None Include="Resources\Paladyn.jpg" />
+    <None Include="Resources\ogien-5.jpg" />
     <Content Include="Resources\radament_na_mapie.jpg" />
     <Content Include="Resources\radament_przeciwnik.jpg" />
     <Content Include="Resources\zakret_1.png" />
