@@ -11,8 +11,10 @@ namespace PuzzleQuest
         const int sizeCard = 70;
         const int rozmiar = 8;
         int zywotność;
+        int zywotność_Postaci;
         int usuniecie = 0;
-        static int i = 0;
+        int licznik_sprawdzen = 0;
+        static int z = 0;
         private int timer;
         int obrazenia_trzy_klocki = 30;
         int obrazenia_cztery_klocki = 40;
@@ -67,6 +69,10 @@ namespace PuzzleQuest
             tab_przeciwnikow[0] = belial;
             tab_przeciwnikow[1] = radament;
 
+
+            przeciwnik[0] = belial.nazwa;
+            przeciwnik[1] = radament.nazwa;
+
             int los;
             
             for (int y = 0; y < 8; y++)
@@ -92,7 +98,7 @@ namespace PuzzleQuest
             //zywotność = progressBar1.Value;
 
             ustawienie_Zywotnosci();
-
+            ustawienie_hp_Postaci();
             sprawdzenie_Klockow();
 
             ustawienie_Zycia();
@@ -107,18 +113,18 @@ namespace PuzzleQuest
 
         private void ustawienie_Zywotnosci()
         {
-            if (tab_przeciwnikow[i] == belial)
+            if (tab_przeciwnikow[z] == belial)
             {
                 zywotność = belial.hp;
             }
-            else if (tab_przeciwnikow[i] == radament)
+            else if (tab_przeciwnikow[z] == radament)
             {
                 zywotność = radament.hp;
             }
         }
         private void ustawienie_Zycia()
         {
-            if (tab_przeciwnikow[i] == belial)
+            if (tab_przeciwnikow[z] == belial)
             {
                 progressBar1.Value = belial.hp;
                 progressBar1.Maximum = belial.hp;
@@ -126,13 +132,19 @@ namespace PuzzleQuest
 
 
             }
-            else if (tab_przeciwnikow[i] == radament)
+            else if (tab_przeciwnikow[z] == radament)
             {
                 progressBar1.Value = radament.hp;
                 progressBar1.Maximum = radament.hp;
                 label1.Text = progressBar1.Value.ToString() + "/" + zywotność;
 
             }
+        }
+
+        private void ustawienie_hp_Postaci()
+        {
+            zywotność_Postaci = pasek_zycia_Postaci.Value;
+            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
         }
         private void sprawdzenie_Klockow()
         {
@@ -213,29 +225,37 @@ namespace PuzzleQuest
                                 progressBar1.Value = 0;
 
                             }
-
                             crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
                             obrazenia_potwora = losowanie_obrazen.Next(30, 70);
-                            if (crytyczne_potwora <= 5)
+                            if (licznik_sprawdzen >= 2)
                             {
-                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                
+                                if (crytyczne_potwora <= 5)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                    {
+                                        pasek_zycia_Postaci.Value = 0;
+                                    }
+                                    
                                 }
                                 else
                                 {
-                                    pasek_zycia_Postaci.Value = 0;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń \n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                        pasek_zycia_Postaci.Value = 0;
                                 }
-                            }
-                            else
-                            {
-                                if (pasek_zycia_Postaci.Value >= 70)
-                                {
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
-                                }
-                                else
-                                    pasek_zycia_Postaci.Value = 0;
+                                zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
                             }
                             for (int x = i; x <= i; x++)
                             {
@@ -319,30 +339,36 @@ namespace PuzzleQuest
 
 
                             }
-
                             crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
                             obrazenia_potwora = losowanie_obrazen.Next(30, 70);
-                            if (crytyczne_potwora <= 5)
+                            if (licznik_sprawdzen >= 2)
                             {
-                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                
+                                if (crytyczne_potwora <= 5)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                    {
+                                        pasek_zycia_Postaci.Value = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    pasek_zycia_Postaci.Value = 0;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń\n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                        pasek_zycia_Postaci.Value = 0;
                                 }
                             }
-                            else
-                            {
-                                if (pasek_zycia_Postaci.Value >= 70)
-                                {
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
-                                }
-                                else
-                                    pasek_zycia_Postaci.Value = 0;
-                            }
+                            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
                             for (int x = i; x <= i; x++)
                             {
                                 for (int y = j; y <= j + 3; y++)
@@ -424,27 +450,35 @@ namespace PuzzleQuest
 
                             crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
                             obrazenia_potwora = losowanie_obrazen.Next(30, 70);
-                            if (crytyczne_potwora <= 5)
+                            if (licznik_sprawdzen >= 2)
                             {
-                                if (pasek_zycia_Postaci.Value >= obrazenia_potwora * 2)
+                                
+                                if (crytyczne_potwora <= 5)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
+
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                    {
+                                        pasek_zycia_Postaci.Value = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    pasek_zycia_Postaci.Value = 0;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń!\n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                        pasek_zycia_Postaci.Value = 0;
                                 }
                             }
-                            else
-                            {
-                                if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
-                                {
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
-                                }
-                                else
-                                    pasek_zycia_Postaci.Value = 0;
-                            }
+                            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
                             for (int x = i; x <= i; x++)
                             {
                                 for (int y = j; y <= j + 2; y++)
@@ -534,30 +568,38 @@ namespace PuzzleQuest
                                 progressBar1.Value = 0;
 
                             }
-
                             crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
                             obrazenia_potwora = losowanie_obrazen.Next(30, 70);
-                            if (crytyczne_potwora <= 5)
+
+                            if (licznik_sprawdzen >= 2)
                             {
-                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                
+                                if (crytyczne_potwora <= 5)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
+
+                                    if (pasek_zycia_Postaci.Value >=  obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                    {
+                                        pasek_zycia_Postaci.Value = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    pasek_zycia_Postaci.Value = 0;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń!\n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                        pasek_zycia_Postaci.Value = 0;
                                 }
                             }
-                            else
-                            {
-                                if (pasek_zycia_Postaci.Value >= 70)
-                                {
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
-                                }
-                                else
-                                    pasek_zycia_Postaci.Value = 0;
-                            }
+                            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
                             for (int x = i; x <= i + 4; x++)
                             {
                                 for (int y = j; y <= j; y++)
@@ -632,30 +674,37 @@ namespace PuzzleQuest
                             {
                                 progressBar1.Value = 0;
                             }
-
                             crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
                             obrazenia_potwora = losowanie_obrazen.Next(30, 70);
-                            if (crytyczne_potwora <= 5)
+                            if (licznik_sprawdzen >= 2)
                             {
-                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                
+                                if (crytyczne_potwora <= 5)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
+
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                    {
+                                        pasek_zycia_Postaci.Value = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    pasek_zycia_Postaci.Value = 0;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń!\n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                        pasek_zycia_Postaci.Value = 0;
                                 }
                             }
-                            else
-                            {
-                                if (pasek_zycia_Postaci.Value >= 70)
-                                {
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
-                                }
-                                else
-                                    pasek_zycia_Postaci.Value = 0;
-                            }
+                            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
                             for (int x = i; x <= i + 3; x++)
                             {
                                 for (int y = j; y <= j; y++)
@@ -732,30 +781,38 @@ namespace PuzzleQuest
                             {
                                 progressBar1.Value = 0;
                             }
-
                             crytyczne_potwora = losowanie_obrazkow.Next(1, 10);
-                            obrazenia_potwora = losowanie_obrazen.Next(1, 20);
-                            if (crytyczne_potwora <= 5)
+                            obrazenia_potwora = losowanie_obrazen.Next(30, 70);
+                            if (licznik_sprawdzen >= 2)
                             {
-                                if (pasek_zycia_Postaci.Value >= 70 || obrazenia_potwora <= 35)
+                                
+
+                                if (crytyczne_potwora <= 5)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
+
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                    {
+                                        pasek_zycia_Postaci.Value = 0;
+                                    }
                                 }
                                 else
                                 {
-                                    pasek_zycia_Postaci.Value = 0;
+                                    textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń\n";
+                                    if (pasek_zycia_Postaci.Value >= obrazenia_potwora)
+                                    {
+                                        pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
+                                    }
+                                    else
+                                        pasek_zycia_Postaci.Value = 0;
                                 }
                             }
-                            else
-                            {
-                                if (pasek_zycia_Postaci.Value >= 70)
-                                {
-                                    pasek_zycia_Postaci.Value = pasek_zycia_Postaci.Value - obrazenia_potwora;
-                                }
-                                else
-                                    pasek_zycia_Postaci.Value = 0;
-                            }
+                            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
                             for (int x = i; x <= i + 2; x++)
                             {
                                 for (int y = j; y <= j; y++)
@@ -778,41 +835,41 @@ namespace PuzzleQuest
                         }
                     }
                 }
+            licznik_sprawdzen++;
 
-            
 
             if (progressBar1.Value == 0)
-            {
-                if (i == 0)
+            { 
+                if (z == 0)
                 {
-                    przeciwnik[i] = "Belial";
-                    MessageBox.Show("Pokonałeś przeciwnika " + przeciwnik[i]);
+                    
+                    MessageBox.Show("Pokonałeś przeciwnika " + przeciwnik[z]);
                 }
-                else if (i == 1)
+                else if (z == 1)
                 {
-                    przeciwnik[i] = "Radament";
-                    MessageBox.Show("Pokonałeś przeciwnika " + przeciwnik[i]);
+                    
+                    MessageBox.Show("Pokonałeś przeciwnika " + przeciwnik[z]);
                 }
-                i++;
+                z++;
 
                 wroc_do_Mapy();
             }
             else if(pasek_zycia_Postaci.Value == 0)
             {
-                if (i == 0)
+                if (z == 0)
                 {
-                    przeciwnik[i] = "Belial";
-                    MessageBox.Show("Pokonał Cie " + przeciwnik[i]);
+                   
+                    MessageBox.Show("Pokonał Cie " + przeciwnik[z]);
                     Mapa.x--;
                 }
-                else if (i == 1)
+                else if (z == 1)
                 {
-                    przeciwnik[i] = "Radament";
-                    MessageBox.Show("Pokonał Cie " + przeciwnik[i]);
+                    
+                    MessageBox.Show("Pokonał Cie " + przeciwnik[z]);
                     Mapa.y--;
                 }
-                
 
+                
                 wroc_do_Mapy();
             }
 
@@ -956,6 +1013,11 @@ namespace PuzzleQuest
             //zamknięcie starego wątku
 
             Application.ExitThread();
+        }
+
+        private void Nowa_Gra_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

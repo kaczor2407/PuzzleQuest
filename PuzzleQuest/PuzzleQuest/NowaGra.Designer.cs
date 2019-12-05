@@ -52,6 +52,8 @@
             this.atak_label = new System.Windows.Forms.Label();
             this.doswiadczenie_label = new System.Windows.Forms.Label();
             this.doswiadczenie_picture_box = new System.Windows.Forms.PictureBox();
+            this.panel_Postaci = new System.Windows.Forms.Panel();
+            this.zycie_postaci_Label = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zielony_klocek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.niebieski_klocek)).BeginInit();
@@ -60,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.czerwony_klocek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.atak_picture_box)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doswiadczenie_picture_box)).BeginInit();
+            this.panel_Postaci.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -195,24 +198,38 @@
             this.doswiadczenie_picture_box.Name = "doswiadczenie_picture_box";
             this.doswiadczenie_picture_box.TabStop = false;
             // 
+            // panel_Postaci
+            // 
+            resources.ApplyResources(this.panel_Postaci, "panel_Postaci");
+            this.panel_Postaci.Controls.Add(this.zolty_klocek);
+            this.panel_Postaci.Controls.Add(this.zycie_postaci_Label);
+            this.panel_Postaci.Controls.Add(this.zielony_klocek);
+            this.panel_Postaci.Controls.Add(this.doswiadczenie_picture_box);
+            this.panel_Postaci.Controls.Add(this.ilosc_czerwonych);
+            this.panel_Postaci.Controls.Add(this.niebieski_klocek);
+            this.panel_Postaci.Controls.Add(this.atak_label);
+            this.panel_Postaci.Controls.Add(this.czerwony_klocek);
+            this.panel_Postaci.Controls.Add(this.monety);
+            this.panel_Postaci.Controls.Add(this.ilosc_zielonych);
+            this.panel_Postaci.Controls.Add(this.ilosc_zoltych);
+            this.panel_Postaci.Controls.Add(this.atak_picture_box);
+            this.panel_Postaci.Controls.Add(this.pieniadze);
+            this.panel_Postaci.Controls.Add(this.doswiadczenie_label);
+            this.panel_Postaci.Controls.Add(this.ilosc_niebieskich);
+            this.panel_Postaci.Name = "panel_Postaci";
+            // 
+            // zycie_postaci_Label
+            // 
+            resources.ApplyResources(this.zycie_postaci_Label, "zycie_postaci_Label");
+            this.zycie_postaci_Label.BackColor = System.Drawing.Color.Transparent;
+            this.zycie_postaci_Label.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.zycie_postaci_Label.Name = "zycie_postaci_Label";
+            // 
             // Nowa_Gra
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.doswiadczenie_picture_box);
-            this.Controls.Add(this.doswiadczenie_label);
-            this.Controls.Add(this.atak_label);
-            this.Controls.Add(this.atak_picture_box);
-            this.Controls.Add(this.monety);
-            this.Controls.Add(this.ilosc_zielonych);
-            this.Controls.Add(this.ilosc_zoltych);
-            this.Controls.Add(this.ilosc_niebieskich);
-            this.Controls.Add(this.ilosc_czerwonych);
-            this.Controls.Add(this.zielony_klocek);
-            this.Controls.Add(this.niebieski_klocek);
-            this.Controls.Add(this.pieniadze);
-            this.Controls.Add(this.zolty_klocek);
-            this.Controls.Add(this.czerwony_klocek);
+            this.Controls.Add(this.panel_Postaci);
             this.Controls.Add(this.pasek_zycia_Postaci);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.progressBar1);
@@ -220,6 +237,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Nowa_Gra";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Nowa_Gra_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zielony_klocek)).EndInit();
@@ -229,6 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.czerwony_klocek)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.atak_picture_box)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doswiadczenie_picture_box)).EndInit();
+            this.panel_Postaci.ResumeLayout(false);
+            this.panel_Postaci.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +279,7 @@
         private System.Windows.Forms.Label atak_label;
         private System.Windows.Forms.Label doswiadczenie_label;
         private System.Windows.Forms.PictureBox doswiadczenie_picture_box;
+        public System.Windows.Forms.Panel panel_Postaci;
+        private System.Windows.Forms.Label zycie_postaci_Label;
     }
 }
