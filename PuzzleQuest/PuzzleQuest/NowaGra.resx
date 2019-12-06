@@ -138,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="progressBar1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="panel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -271,7 +271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <metadata name="zaznaczanie_Timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -298,7 +298,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pasek_zycia_Postaci.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="ilosc_czerwonych.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -699,6 +699,39 @@
   <data name="panel_Postaci.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
   </data>
+  <data name="&gt;&gt;zycie_postaci_Label.Name" xml:space="preserve">
+    <value>zycie_postaci_Label</value>
+  </data>
+  <data name="&gt;&gt;zycie_postaci_Label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;zycie_postaci_Label.Parent" xml:space="preserve">
+    <value>panel_Postaci</value>
+  </data>
+  <data name="&gt;&gt;zycie_postaci_Label.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel_Postaci.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 30</value>
+  </data>
+  <data name="panel_Postaci.Size" type="System.Drawing.Size, System.Drawing">
+    <value>369, 494</value>
+  </data>
+  <data name="panel_Postaci.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panel_Postaci.Name" xml:space="preserve">
+    <value>panel_Postaci</value>
+  </data>
+  <data name="&gt;&gt;panel_Postaci.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel_Postaci.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel_Postaci.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="zycie_postaci_Label.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -738,25 +771,37 @@
   <data name="&gt;&gt;zycie_postaci_Label.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="panel_Postaci.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 30</value>
+  <data name="Ulecz.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="panel_Postaci.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 494</value>
+  <data name="Ulecz.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="panel_Postaci.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="Ulecz.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;panel_Postaci.Name" xml:space="preserve">
-    <value>panel_Postaci</value>
+  <data name="Ulecz.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 530</value>
   </data>
-  <data name="&gt;&gt;panel_Postaci.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Ulecz.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 29</value>
   </data>
-  <data name="&gt;&gt;panel_Postaci.Parent" xml:space="preserve">
+  <data name="Ulecz.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="Ulecz.Text" xml:space="preserve">
+    <value>Ulecz</value>
+  </data>
+  <data name="&gt;&gt;Ulecz.Name" xml:space="preserve">
+    <value>Ulecz</value>
+  </data>
+  <data name="&gt;&gt;Ulecz.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Ulecz.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;panel_Postaci.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Ulecz.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

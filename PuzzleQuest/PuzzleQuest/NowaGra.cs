@@ -146,6 +146,15 @@ namespace PuzzleQuest
             zywotność_Postaci = pasek_zycia_Postaci.Value;
             zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
         }
+
+        private void leczenie_Postaci()
+        {
+            if (suma_czerwonych >= 10)
+            {
+                Ulecz.Enabled = true;
+            }
+        }
+
         private void sprawdzenie_Klockow()
         {
 
@@ -230,7 +239,7 @@ namespace PuzzleQuest
                             if (licznik_sprawdzen >= 2)
                             {
                                 
-                                if (crytyczne_potwora <= 5)
+                                if (crytyczne_potwora <= 2)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
                                     textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
@@ -344,7 +353,7 @@ namespace PuzzleQuest
                             if (licznik_sprawdzen >= 2)
                             {
                                 
-                                if (crytyczne_potwora <= 5)
+                                if (crytyczne_potwora <= 2)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
                                     textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
@@ -453,7 +462,7 @@ namespace PuzzleQuest
                             if (licznik_sprawdzen >= 2)
                             {
                                 
-                                if (crytyczne_potwora <= 5)
+                                if (crytyczne_potwora <= 2)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
                                     textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
@@ -574,7 +583,7 @@ namespace PuzzleQuest
                             if (licznik_sprawdzen >= 2)
                             {
                                 
-                                if (crytyczne_potwora <= 5)
+                                if (crytyczne_potwora <= 2)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
                                     textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
@@ -679,7 +688,7 @@ namespace PuzzleQuest
                             if (licznik_sprawdzen >= 2)
                             {
                                 
-                                if (crytyczne_potwora <= 5)
+                                if (crytyczne_potwora <= 2)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
                                     textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
@@ -787,7 +796,7 @@ namespace PuzzleQuest
                             {
                                 
 
-                                if (crytyczne_potwora <= 5)
+                                if (crytyczne_potwora <= 2)
                                 {
                                     obrazenia_potwora = obrazenia_potwora * 2;
                                     textBox1.Text = textBox1.Text + "\r\n" + przeciwnik[z] + " zadaje " + obrazenia_potwora + " Obrazeń krytycznych!\n";
@@ -836,6 +845,10 @@ namespace PuzzleQuest
                     }
                 }
             licznik_sprawdzen++;
+
+            leczenie_Postaci();
+
+            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
 
 
             if (progressBar1.Value == 0)
@@ -1018,6 +1031,15 @@ namespace PuzzleQuest
         private void Nowa_Gra_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Ulecz_Click(object sender, EventArgs e)
+        {
+            pasek_zycia_Postaci.Value += 200;
+            Ulecz.Enabled = false;
+            suma_czerwonych = 0;
+            ilosc_czerwonych.Text = suma_czerwonych.ToString();
+            zycie_postaci_Label.Text = pasek_zycia_Postaci.Value.ToString() + "/" + zywotność_Postaci;
         }
     }
 }

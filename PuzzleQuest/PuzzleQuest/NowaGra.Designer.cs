@@ -54,6 +54,7 @@
             this.doswiadczenie_picture_box = new System.Windows.Forms.PictureBox();
             this.panel_Postaci = new System.Windows.Forms.Panel();
             this.zycie_postaci_Label = new System.Windows.Forms.Label();
+            this.Ulecz = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zielony_klocek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.niebieski_klocek)).BeginInit();
@@ -225,10 +226,19 @@
             this.zycie_postaci_Label.ForeColor = System.Drawing.SystemColors.Desktop;
             this.zycie_postaci_Label.Name = "zycie_postaci_Label";
             // 
+            // Ulecz
+            // 
+            this.Ulecz.BackColor = System.Drawing.Color.Lime;
+            resources.ApplyResources(this.Ulecz, "Ulecz");
+            this.Ulecz.Name = "Ulecz";
+            this.Ulecz.UseVisualStyleBackColor = false;
+            this.Ulecz.Click += new System.EventHandler(this.Ulecz_Click);
+            // 
             // Nowa_Gra
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Ulecz);
             this.Controls.Add(this.panel_Postaci);
             this.Controls.Add(this.pasek_zycia_Postaci);
             this.Controls.Add(this.textBox1);
@@ -281,5 +291,6 @@
         private System.Windows.Forms.PictureBox doswiadczenie_picture_box;
         public System.Windows.Forms.Panel panel_Postaci;
         private System.Windows.Forms.Label zycie_postaci_Label;
+        private System.Windows.Forms.Button Ulecz;
     }
 }
