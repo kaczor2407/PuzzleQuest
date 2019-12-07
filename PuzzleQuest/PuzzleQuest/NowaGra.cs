@@ -301,32 +301,32 @@ namespace PuzzleQuest
 
                                     if (karty[i, j].Image == nazwa_obrazkow[0])
                                     {
-                                        suma_niebieskich += 3;
+                                        suma_niebieskich += 4;
                                         ilosc_niebieskich.Text = suma_niebieskich.ToString();
                                     }
                                     else if (karty[i, j].Image == nazwa_obrazkow[1])
                                     {
-                                        suma_zielonych += 3;
+                                        suma_zielonych += 4;
                                         ilosc_zielonych.Text = suma_zielonych.ToString();
                                     }
                                     else if (karty[i, j].Image == nazwa_obrazkow[2])
                                     {
-                                        suma_zoltych += 3;
+                                        suma_zoltych += 4;
                                         ilosc_zoltych.Text = suma_zoltych.ToString();
                                     }
                                     else if (karty[i, j].Image == nazwa_obrazkow[3])
                                     {
-                                        suma_atak += 3;
+                                        suma_atak += 4;
                                         atak_label.Text = suma_atak.ToString();
                                     }
                                     else if (karty[i, j].Image == nazwa_obrazkow[4])
                                     {
-                                        suma_czerwonych += 3;
+                                        suma_czerwonych += 4;
                                         ilosc_czerwonych.Text = suma_czerwonych.ToString();
                                     }
                                     else if (karty[i, j].Image == nazwa_obrazkow[5])
                                     {
-                                        suma_doswiadczenie += 3;
+                                        suma_doswiadczenie += 4;
                                         doswiadczenie_label.Text = suma_doswiadczenie.ToString();
                                     }
                                     else if (karty[i, j].Image == nazwa_obrazkow[6])
