@@ -55,6 +55,7 @@
             this.panel_Postaci = new System.Windows.Forms.Panel();
             this.zycie_postaci_Label = new System.Windows.Forms.Label();
             this.Ulecz = new System.Windows.Forms.Button();
+            this.Czas = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.zielony_klocek)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.niebieski_klocek)).BeginInit();
@@ -101,7 +102,6 @@
             // 
             // zaznaczanie_Timer
             // 
-            this.zaznaczanie_Timer.Enabled = true;
             this.zaznaczanie_Timer.Interval = 1000;
             this.zaznaczanie_Timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -234,10 +234,16 @@
             this.Ulecz.UseVisualStyleBackColor = false;
             this.Ulecz.Click += new System.EventHandler(this.Ulecz_Click);
             // 
+            // Czas
+            // 
+            resources.ApplyResources(this.Czas, "Czas");
+            this.Czas.Name = "Czas";
+            // 
             // Nowa_Gra
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Czas);
             this.Controls.Add(this.Ulecz);
             this.Controls.Add(this.panel_Postaci);
             this.Controls.Add(this.pasek_zycia_Postaci);
@@ -292,5 +298,6 @@
         public System.Windows.Forms.Panel panel_Postaci;
         private System.Windows.Forms.Label zycie_postaci_Label;
         private System.Windows.Forms.Button Ulecz;
+        private System.Windows.Forms.Label Czas;
     }
 }

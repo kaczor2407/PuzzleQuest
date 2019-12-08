@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mapa));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_zapisz_gre = new System.Windows.Forms.Button();
             this.label1_zalogowany = new System.Windows.Forms.Label();
@@ -83,9 +84,10 @@
             this.Controls.Add(this.label1_zalogowany);
             this.Controls.Add(this.button_zapisz_gre);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mapa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Puzzle Quest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Mapa_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_pressed);

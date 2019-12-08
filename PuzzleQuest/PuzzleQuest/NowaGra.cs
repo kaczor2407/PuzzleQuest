@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace PuzzleQuest
 {
 
@@ -47,7 +48,7 @@ namespace PuzzleQuest
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer++;
-            Text = timer.ToString();
+            Czas.Text = "Czas = "+ timer.ToString();
 
         }
 
@@ -1030,7 +1031,7 @@ namespace PuzzleQuest
 
         private void Nowa_Gra_Load(object sender, EventArgs e)
         {
-
+            zaznaczanie_Timer.Start();
         }
 
         private void Ulecz_Click(object sender, EventArgs e)

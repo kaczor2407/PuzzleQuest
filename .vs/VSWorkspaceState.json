@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PuzzleQuest",
-    "\\PuzzleQuest\\PuzzleQuest"
+    "\\PuzzleQuest"
   ],
-  "SelectedNode": "\\PuzzleQuest\\PuzzleQuest\\Mapa.cs",
+  "SelectedNode": "\\PuzzleQuest\\PuzzleQuest.sln",
   "PreviewInSolutionExplorer": false
 }
