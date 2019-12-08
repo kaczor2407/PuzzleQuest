@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Resources\Database1.mdf;Integrated Security=True" SettingsObjectName="PuzzleQuest.Properties.Settings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tabela" Member="Tabela">
+    <Type Name="Tabela">
+      <Column Name="Login" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Haslo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nazwa" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Postac" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wspolrzedna_X" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="wspolrzedna_Y" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
