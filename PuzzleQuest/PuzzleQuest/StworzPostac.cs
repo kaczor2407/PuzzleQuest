@@ -37,6 +37,7 @@ namespace PuzzleQuest
         {
             InitializeComponent();
 
+            
             lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.czarodziej);
 
             lista_zdjec.Add(global::PuzzleQuest.Properties.Resources.lucznik);
@@ -65,7 +66,7 @@ namespace PuzzleQuest
 
             //Wrzucenie danych do bazy danych
 
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\USERS\LUK\DESKTOP\PUZZLE QUEST\V3\PUZZLEQUEST\BazaDanych.mdf; Integrated Security = True; Connect Timeout = 30");
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Luk\Desktop\Puzzle Quest\v5\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
             string dat = "Insert into [Tabela](Login, Haslo, Nazwa, Postac) Values ('" + Login.Text + "', '" + Haslo.Text + "', '" + NazwaPostaci.Text + "', '" + Wojownik.Text + "')";
             SqlCommand com = new SqlCommand(dat, con);
             con.Open();

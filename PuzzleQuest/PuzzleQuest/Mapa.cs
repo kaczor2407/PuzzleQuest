@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -109,8 +110,8 @@ namespace PuzzleQuest
                 }
             }
 
-            
-            
+            Logowanie l = new Logowanie();
+            label_pokaz_login.Text = l.login;            
                 
 
         }
@@ -271,6 +272,24 @@ namespace PuzzleQuest
                 y--;
                 rycerz.Location = new Point(x * 70, y * 70);
             }
+        }
+
+        //Zapisanie gry
+        public void button_zapisz_gre_Click(object sender, EventArgs e)
+        {
+            var a = label_pokaz_login.Text;
+
+            Logowanie l = new Logowanie();
+
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Luk\Desktop\Puzzle Quest\v5\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
+            string dat = "Update Tabela set wspolrzedna_X = 'bbbb', wspolrzedna_Y = 'bbbb' where Login = a";
+            SqlCommand com = new SqlCommand(dat, con);
+            con.Open();
+            com.ExecuteNonQuery();
+            con.Close();
+
+
+
         }
     }
 }

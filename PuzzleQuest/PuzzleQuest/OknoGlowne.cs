@@ -10,11 +10,12 @@ namespace PuzzleQuest
         Button[,] karty = new Button[8, 8];
 
         List<Bitmap> lista_gifow = new List<Bitmap>();
-
         
+
         public PuzzleQuest()
         {
             lista_gifow.Add(global::PuzzleQuest.Properties.Resources.ogien);
+            
             InitializeComponent();
         }
 
