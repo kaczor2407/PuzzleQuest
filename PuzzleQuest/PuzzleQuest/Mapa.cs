@@ -277,18 +277,17 @@ namespace PuzzleQuest
         //Zapisanie gry
         public void button_zapisz_gre_Click(object sender, EventArgs e)
         {
-            var a = label_pokaz_login.Text;
 
-            Logowanie l = new Logowanie();
 
             SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Luk\Desktop\Puzzle Quest\v7\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
-            string dat = "Update Tabela set wspolrzedna_X ='nowe', wspolrzedna_Y ='nowe' where Login ='" + label_pokaz_login.Text +"'";
+            string dat = "Update Tabela set wspolrzedna_X ='" + x +"', wspolrzedna_Y ='" + y +"' where Login ='" + label_pokaz_login.Text +"'";
             SqlCommand com = new SqlCommand(dat, con);
 
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
 
+            MessageBox.Show("Zapisano grę.", "Stan gry", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
