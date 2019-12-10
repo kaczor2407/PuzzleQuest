@@ -281,9 +281,10 @@ namespace PuzzleQuest
 
             Logowanie l = new Logowanie();
 
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Luk\Desktop\Puzzle Quest\v6\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
-            string dat = "Update Tabela set wspolrzedna_X = 'bbbb', wspolrzedna_Y = 'bbbb' where Login = 'aa'";
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Luk\Desktop\Puzzle Quest\v7\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
+            string dat = "Update Tabela set wspolrzedna_X ='nowe', wspolrzedna_Y ='nowe' where Login ='" + label_pokaz_login.Text +"'";
             SqlCommand com = new SqlCommand(dat, con);
+
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
