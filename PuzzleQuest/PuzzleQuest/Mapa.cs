@@ -291,5 +291,34 @@ namespace PuzzleQuest
 
 
         }
+
+        //zamykanie okna mapy
+        private void zamknij_mapa(object sender, FormClosingEventArgs e)
+        {
+            
+            DialogResult wiadomosc1 = MessageBox.Show("Czy na pewno chcesz wyjść z gry?", "Exit", MessageBoxButtons.YesNo);
+            if (wiadomosc1 == DialogResult.Yes)
+            {
+                DialogResult wiadomosc2 = MessageBox.Show("Czy chcesz zapisać grę przed wyjściem?", "Zapis gry", MessageBoxButtons.YesNo);
+                if (wiadomosc2 == DialogResult.Yes)
+                {
+                    // odwolaj sie do przycisku zapisania gry
+                    button_zapisz_gre.PerformClick();
+                    PuzzleQuest menu_glowne = new PuzzleQuest();
+                    menu_glowne.Show();
+                }
+                else if (wiadomosc2 == DialogResult.No)
+                {
+                    PuzzleQuest menu_glowne = new PuzzleQuest();
+                    menu_glowne.Show(); 
+                }
+            }
+            else if (wiadomosc1 == DialogResult.No)
+            {
+                e.Cancel = true;
+            };
+            
+        }
+
     }
 }
