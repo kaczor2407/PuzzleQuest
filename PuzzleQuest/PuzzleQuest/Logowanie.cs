@@ -46,7 +46,22 @@ namespace PuzzleQuest
                 login = textBox_login.Text;
                 pp.label_pokaz_login.Text = login;
 
+                //pobranie z bazy wspolrzednej x
+                SqlDataAdapter wsprz_X = new SqlDataAdapter("Select wspolrzedna_X From Tabela where Login='" + textBox_login.Text + "'", con);
+                DataTable wsprz_X_table = new DataTable();
+                wsprz_X.Fill(wsprz_X_table);
+                
+                //pobranie z bazy wspolrzednej y
+                SqlDataAdapter wsprz_Y = new SqlDataAdapter("Select wspolrzedna_Y From Tabela where Login='" + textBox_login.Text + "'", con);
+                DataTable wsprz_Y_table = new DataTable();
+                wsprz_Y.Fill(wsprz_Y_table);
+
+                //Mateusz wez tą linijkę poniżej.
+                //MessageBox.Show("wspolrzedna x to: " + wsprz_X_table.Rows[0][0].ToString() + " a y to: " + wsprz_Y_table.Rows[0][0].ToString());
+
+
                 pp.Show();
+                //pp.rycerz.Location = new Point(wsprz_X * 70, y * 70);
             }
             else
             {
