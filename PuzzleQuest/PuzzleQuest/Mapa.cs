@@ -21,7 +21,7 @@ namespace PuzzleQuest
         List<Image> bohater = new List<Image>();
         Image[] tablica_przeciwnikow = new Image[7];
         Image[] tablica_przeciwnicy_na_drodze = new Image[7];
-        Button rycerz = new Button();
+        public static Button rycerz = new Button();
         public Nowa_Gra p = new Nowa_Gra();
 
         

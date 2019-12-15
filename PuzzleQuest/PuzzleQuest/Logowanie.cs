@@ -56,12 +56,17 @@ namespace PuzzleQuest
                 DataTable wsprz_Y_table = new DataTable();
                 wsprz_Y.Fill(wsprz_Y_table);
 
-                //Mateusz wez tą linijkę poniżej.
-                //MessageBox.Show("wspolrzedna x to: " + wsprz_X_table.Rows[0][0].ToString() + " a y to: " + wsprz_Y_table.Rows[0][0].ToString());
 
+                int coordinate_X = Int32.Parse(wsprz_X_table.Rows[0][0].ToString());
+                MessageBox.Show("wspolrzedna Ccoordinate X to: " + coordinate_X);
+                int coordinate_Y = Int32.Parse(wsprz_Y_table.Rows[0][0].ToString());
+                MessageBox.Show("wspolrzedna coordinate Y to: " + coordinate_Y);
 
+                Mapa.x = coordinate_X;
+                Mapa.y = coordinate_Y;
+                Mapa.rycerz.Location = new Point(Mapa.x * 70, Mapa.y * 70);
                 pp.Show();
-                //pp.rycerz.Location = new Point(wsprz_X * 70, y * 70);
+                
             }
             else
             {
