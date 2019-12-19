@@ -12,8 +12,6 @@ namespace PuzzleQuest
         public int hp;
         public float obrazenia;
         public float krytyczne;
-        int los=0;
-        Random losuj_krytyczne = new Random();
         public Radament(string n, int zycie, float dmg, float cryt)
         {
             this.nazwa = n;

@@ -223,7 +223,22 @@ namespace PuzzleQuest
                 p.panel2.BackgroundImage = przeciwnicy_w_grze[0];
                 p.panel2.BackgroundImageLayout = ImageLayout.Zoom;
                 
-                
+                if(Logowanie.postać == "Czarodziej")
+                {
+                    p.panel_Postaci.BackgroundImage = global::PuzzleQuest.Properties.Resources.czarodziej;
+                    p.panel_Postaci.BackgroundImageLayout = ImageLayout.Zoom;
+                }
+                else if (Logowanie.postać == "Paladyn")
+                {
+                    p.panel_Postaci.BackgroundImage = global::PuzzleQuest.Properties.Resources.Paladyn;
+                    p.panel_Postaci.BackgroundImageLayout = ImageLayout.Zoom;
+                }
+                else if (Logowanie.postać == "Lucznik")
+                {
+                    p.panel_Postaci.BackgroundImage = global::PuzzleQuest.Properties.Resources.lucznik;
+                    p.panel_Postaci.BackgroundImageLayout = ImageLayout.Zoom;
+                }
+
                 System.Threading.Thread nowagra =
                 new System.Threading.Thread(new System.Threading.ThreadStart(otworzInterface));
                 //uruchomienie nowego wątku
@@ -279,7 +294,7 @@ namespace PuzzleQuest
         {
 
 
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Luk\Desktop\Puzzle Quest\v7\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\48506\Desktop\Git_projekt\PuzzleQuest\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
             string dat = "Update Tabela set wspolrzedna_X ='" + x +"', wspolrzedna_Y ='" + y +"' where Login ='" + label_pokaz_login.Text +"'";
             SqlCommand com = new SqlCommand(dat, con);
 
