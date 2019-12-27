@@ -14,7 +14,7 @@ namespace PuzzleQuest
     public partial class Logowanie : Form
     {
         public string login;
-
+        public static string postać; 
         public Logowanie()
         {
             InitializeComponent();
@@ -32,10 +32,14 @@ namespace PuzzleQuest
         {
             //zaloguj postać do gry
            
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Luk\Desktop\Puzzle Quest\v7\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\48506\Desktop\Git_projekt\PuzzleQuest\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) From Tabela where Login='" + textBox_login.Text + "' and Haslo ='" + textBox_haslo.Text + "'", con);
+            SqlDataAdapter postac = new SqlDataAdapter("Select Postac From Tabela where Login='" + textBox_login.Text + "'", con);
             DataTable data_table = new DataTable();
+            DataTable postac_table = new DataTable();
             sda.Fill(data_table);
+            postac.Fill(postac_table);
+            postać = postac_table.Rows[0][0].ToString();
 
             if (data_table.Rows[0][0].ToString() == "1")
             {
