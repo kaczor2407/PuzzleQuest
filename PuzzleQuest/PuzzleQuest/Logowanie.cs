@@ -58,9 +58,9 @@ namespace PuzzleQuest
 
 
                 int coordinate_X = Int32.Parse(wsprz_X_table.Rows[0][0].ToString());
-                MessageBox.Show("wspolrzedna Ccoordinate X to: " + coordinate_X);
+                //MessageBox.Show("wspolrzedna Ccoordinate X to: " + coordinate_X);
                 int coordinate_Y = Int32.Parse(wsprz_Y_table.Rows[0][0].ToString());
-                MessageBox.Show("wspolrzedna coordinate Y to: " + coordinate_Y);
+                //MessageBox.Show("wspolrzedna coordinate Y to: " + coordinate_Y);
 
                 Mapa.x = coordinate_X;
                 Mapa.y = coordinate_Y;
