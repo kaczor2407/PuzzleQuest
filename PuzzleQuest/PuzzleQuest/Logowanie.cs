@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 
 namespace PuzzleQuest
 {
+    
+
     public partial class Logowanie : Form
     {
         public string login;
@@ -28,6 +30,9 @@ namespace PuzzleQuest
             ss.Show();
         }
         
+        
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             //zaloguj postać do gry
