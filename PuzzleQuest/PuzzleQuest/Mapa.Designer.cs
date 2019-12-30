@@ -89,6 +89,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Puzzle Quest";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.zamknij_mapa);
             this.Load += new System.EventHandler(this.Mapa_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_pressed);
             this.ResumeLayout(false);

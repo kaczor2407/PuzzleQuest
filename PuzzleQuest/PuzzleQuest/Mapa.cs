@@ -21,7 +21,7 @@ namespace PuzzleQuest
         List<Image> bohater = new List<Image>();
         Image[] tablica_przeciwnikow = new Image[7];
         Image[] tablica_przeciwnicy_na_drodze = new Image[7];
-        Button rycerz = new Button();
+        public static Button rycerz = new Button();
         public Nowa_Gra p = new Nowa_Gra();
 
         
@@ -223,7 +223,22 @@ namespace PuzzleQuest
                 p.panel2.BackgroundImage = przeciwnicy_w_grze[0];
                 p.panel2.BackgroundImageLayout = ImageLayout.Zoom;
                 
-                
+                if(Logowanie.postać == "Czarodziej")
+                {
+                    p.panel_Postaci.BackgroundImage = global::PuzzleQuest.Properties.Resources.czarodziej;
+                    p.panel_Postaci.BackgroundImageLayout = ImageLayout.Zoom;
+                }
+                else if (Logowanie.postać == "Paladyn")
+                {
+                    p.panel_Postaci.BackgroundImage = global::PuzzleQuest.Properties.Resources.Paladyn;
+                    p.panel_Postaci.BackgroundImageLayout = ImageLayout.Zoom;
+                }
+                else if (Logowanie.postać == "Lucznik")
+                {
+                    p.panel_Postaci.BackgroundImage = global::PuzzleQuest.Properties.Resources.lucznik;
+                    p.panel_Postaci.BackgroundImageLayout = ImageLayout.Zoom;
+                }
+
                 System.Threading.Thread nowagra =
                 new System.Threading.Thread(new System.Threading.ThreadStart(otworzInterface));
                 //uruchomienie nowego wątku
@@ -277,19 +292,48 @@ namespace PuzzleQuest
         //Zapisanie gry
         public void button_zapisz_gre_Click(object sender, EventArgs e)
         {
-            var a = label_pokaz_login.Text;
 
-            Logowanie l = new Logowanie();
 
-            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\Luk\Desktop\Puzzle Quest\v6\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
-            string dat = "Update Tabela set wspolrzedna_X = 'bbbb', wspolrzedna_Y = 'bbbb' where Login = 'aa'";
+            SqlConnection con = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\48506\Desktop\Git_projekt\PuzzleQuest\PuzzleQuest\PuzzleQuest\Resources\Database1.mdf; Integrated Security = True; Connect Timeout = 30");
+            string dat = "Update Tabela set wspolrzedna_X ='" + x +"', wspolrzedna_Y ='" + y +"' where Login ='" + label_pokaz_login.Text +"'";
             SqlCommand com = new SqlCommand(dat, con);
+
             con.Open();
             com.ExecuteNonQuery();
             con.Close();
 
+            MessageBox.Show("Zapisano grę.", "Stan gry", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
+
+        //zamykanie okna mapy
+        private void zamknij_mapa(object sender, FormClosingEventArgs e)
+        {
+            
+            DialogResult wiadomosc1 = MessageBox.Show("Czy na pewno chcesz wyjść z gry?", "Exit", MessageBoxButtons.YesNo);
+            if (wiadomosc1 == DialogResult.Yes)
+            {
+                DialogResult wiadomosc2 = MessageBox.Show("Czy chcesz zapisać grę przed wyjściem?", "Zapis gry", MessageBoxButtons.YesNo);
+                if (wiadomosc2 == DialogResult.Yes)
+                {
+                    // odwolaj sie do przycisku zapisania gry
+                    button_zapisz_gre.PerformClick();
+                    PuzzleQuest menu_glowne = new PuzzleQuest();
+                    menu_glowne.Show();
+                }
+                else if (wiadomosc2 == DialogResult.No)
+                {
+                    PuzzleQuest menu_glowne = new PuzzleQuest();
+                    menu_glowne.Show(); 
+                }
+            }
+            else if (wiadomosc1 == DialogResult.No)
+            {
+                e.Cancel = true;
+            };
+            
+        }
+
     }
 }
